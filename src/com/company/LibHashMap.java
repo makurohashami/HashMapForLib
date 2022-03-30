@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,42 +19,42 @@ public class LibHashMap<K, V> implements LibMap<K, V> {
     }
 
     public boolean remove(K key) {
-        return false;
+        if(isNull(key)) { return false; }
+        map.remove(key);
+        return true;
     }
 
     public boolean containsKey(K key) {
-        return false;
+        if(isNull(key)) { return false; }
+        return map.containsKey(key);
     }
 
     public V get(K key) {
-        return null;
+        if(isNull(key)) { return null; }
+        return map.get(key);
     }
 
     public boolean isEmpty() {
-        return false;
+        return map.isEmpty();
     }
 
     public void clear() {
-
+        map.clear();
     }
 
     public int size() {
-        return 0;
+        return map.size();
     }
 
     public V[] toArray() {
-        return null;
+        return (V[]) map.values().toArray();
     }
 
     public String toString() {
-        return Arrays.toString(toArray());
+        return map.toString();
     }
 
-    //TECHNICAL METHODS
-
-    //private boolean isCorrectID(Identifier id) {
-    //    return id.getID() >= 100000 && id.getID() <= 999999;
-    //}
+    //TECHNICAL METHOD
 
     private boolean isNull(Object o) {
         return o == null;
