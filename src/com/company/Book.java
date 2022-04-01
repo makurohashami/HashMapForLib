@@ -27,4 +27,8 @@ public class Book {
     public String toString() {
         return "[Назв.: " + name + ", Авт.: " + author + ", Год: " + year + "]";
     }
+
+    public int getYear() {
+        return year;
+    }
 }
